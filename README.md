@@ -2,3 +2,5 @@
 
 ## To get started
 
+## Install the requirements
+``` npm install ```
