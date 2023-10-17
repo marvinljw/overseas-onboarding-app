@@ -2,6 +2,7 @@ const COLORS = {
     red: "#E73929",
     green: "#008700",
     blue: "#2563CC",
+    yellow: "#F7BA50",
   
     lightBlue: "#E1F0FF",
     
@@ -16,6 +17,7 @@ const COLORS = {
   };
   
   const SIZES = {
+    xxSmall: 4,
     xSmall: 10,
     small: 12,
     medium: 16,

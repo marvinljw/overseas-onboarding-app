@@ -11,9 +11,9 @@ const SplashScreen = ( { navigation } ) => {
         console.log("use effect activated")
 
         const fetchData = async () => {
-            await delay(5000);
+            await delay(3000);
             console.log("Waited 5s");
-            navigation.push('Home');
+            navigation.push('Permission');
         }
 
         fetchData(); 
