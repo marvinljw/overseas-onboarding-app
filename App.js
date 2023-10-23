@@ -9,6 +9,7 @@ import SplashScreen from "./src/screens/SplashScreen";
 import PermissionScreen from "./src/screens/PermissionScreen";
 
 import { COLORS } from "./src/constants/index";
+import ScanPassportScreen from "./src/screens/ScanPassportScreen";
 
 const Stack = createStackNavigator();
 
@@ -41,7 +42,33 @@ export default function App() {
             }}
           />
 
-          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen
+            name="ScanPassport"
+            component={ScanPassportScreen}
+            options={{
+              headerTitle: "Scan your passport",
+              headerStyle: { backgroundColor: COLORS.blue },
+              // headerShadowVisible: false,
+              // headerShown: false,
+              headerTitleStyle: {
+                color: COLORS.white,
+              }
+            }}
+          />
+
+          <Stack.Screen 
+              name="Home" 
+              component={HomeScreen} 
+              options={{
+                headerTitle: "Welcome",
+                headerStyle: { backgroundColor: COLORS.blue },
+                // headerShadowVisible: false,
+                // headerShown: false,
+                headerTitleStyle: {
+                  color: COLORS.white,
+                }
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaView>
