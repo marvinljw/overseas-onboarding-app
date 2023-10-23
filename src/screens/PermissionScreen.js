@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import {
-  ActivityIndicator,
   StyleSheet,
   View,
   Text,
@@ -8,7 +7,7 @@ import {
   TouchableOpacity,
   Linking,
 } from "react-native";
-import { COLORS, FONT, SIZES } from "../constants/index";
+import { COLORS, FONT, SIZES, BUTTONS } from "../constants/index";
 
 const PermissionScreen = ({ navigation }) => {
   const handleLinkPress = () => {
@@ -56,7 +55,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     height: "100%",
     width: "100%",
-    padding: "3%",
+    padding: "5%",
   },
   logo: {
     width: "70%",
@@ -84,11 +83,7 @@ const styles = StyleSheet.create({
   },
 
   btmButton: {
-    position: 'absolute',
-    bottom: 20,
-    backgroundColor: COLORS.yellow,
-    width: "90%",
-    borderRadius: SIZES.xxSmall,
+    ...BUTTONS.btmButton
   },
 
   buttonText: {
