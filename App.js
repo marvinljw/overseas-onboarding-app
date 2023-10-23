@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, SafeAreaView, Pressable, Linking } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView, Pressable } from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import { NavigationContainer } from "@react-navigation/native";
@@ -9,6 +9,7 @@ import HomeScreen from "./src/screens/HomeScreen";
 import SplashScreen from "./src/screens/SplashScreen";
 import PermissionScreen from "./src/screens/PermissionScreen";
 import ScanPassportScreen from "./src/screens/ScanPassportScreen";
+import HowToScanScreen from "./src/screens/HowToScanScreen";
 
 import { COLORS } from "./src/constants/index";
 
@@ -49,8 +50,6 @@ export default function App() {
               options={{
                 headerTitle: "Welcome",
                 headerStyle: { backgroundColor: COLORS.blue },
-                // headerShadowVisible: false,
-                // headerShown: false,
                 headerTitleStyle: {
                   color: COLORS.white,
                 }
@@ -60,7 +59,7 @@ export default function App() {
           <Stack.Screen
             name="ScanPassport"
             component={ScanPassportScreen}
-            options={{
+            options={({ navigation }) => ({
               headerTitle: "Scan your passport",
               headerStyle: { backgroundColor: COLORS.blue },
               headerTitleStyle: {
@@ -74,7 +73,7 @@ export default function App() {
                     borderless: true,
                   }}
                   onPress={() => {    
-                    Linking.openURL("https://www.mom.gov.sg/eservices/sgworkpass");
+                    navigation.navigate('HowToScan');
                   }}>
                   <Icon
                     style={{paddingRight: 10}}
@@ -83,7 +82,19 @@ export default function App() {
                     color={"white"}
                   />
                 </Pressable>
-              )
+              ),
+            })}
+          />
+
+          <Stack.Screen 
+              name="HowToScan" 
+              component={HowToScanScreen} 
+              options={{
+                headerTitle: "How To Scan",
+                headerStyle: { backgroundColor: COLORS.blue },
+                headerTitleStyle: {
+                  color: COLORS.white,
+                }
             }}
           />
         </Stack.Navigator>

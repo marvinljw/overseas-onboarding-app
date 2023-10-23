@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Dimensions, Animated } from 'react-native';
 import MaskedView from "@react-native-masked-view/masked-view";
 import { Camera, CameraType } from 'expo-camera';
-import Icon from "react-native-vector-icons/MaterialIcons";
 import * as ImagePicker from "expo-image-picker"
 import { COLORS, FONT, SIZES, BUTTONS } from "../constants/index";
 
@@ -22,7 +21,7 @@ const ScanPassportScreen = ({ navigation, route }) => {
     const [scaleAnim] = useState(new Animated.Value(1));
 
     const handleGotItPress = () => {
-        navigation.push('Splash')
+        navigation.push('HowToScan')
     };
 
     useEffect(() => {
