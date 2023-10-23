@@ -7,6 +7,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./src/screens/HomeScreen";
 import SplashScreen from "./src/screens/SplashScreen";
 import PermissionScreen from "./src/screens/PermissionScreen";
+import PurposeScreen from "./src/screens/PurposeScreen";
 
 import { COLORS } from "./src/constants/index";
 
@@ -33,11 +34,21 @@ export default function App() {
             options={{
               headerTitle: "Welcome",
               headerStyle: { backgroundColor: COLORS.blue },
-              // headerShadowVisible: false,
-              // headerShown: false,
               headerTitleStyle: {
                 color: COLORS.white,
-              }
+              },
+            }}
+          />
+
+          <Stack.Screen
+            name="Purpose"
+            component={PurposeScreen}
+            options={{
+              headerTitle: "Welcome",
+              headerStyle: { backgroundColor: COLORS.blue },
+              headerTitleStyle: {
+                color: COLORS.white,
+              },
             }}
           />
 

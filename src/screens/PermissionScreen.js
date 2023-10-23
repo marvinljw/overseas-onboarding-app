@@ -16,7 +16,7 @@ const PermissionScreen = ({ navigation }) => {
   };
 
   const handleGotItPress = () => {
-    navigation.push('Home')
+    navigation.push('Purpose')
   };
 
   return (
