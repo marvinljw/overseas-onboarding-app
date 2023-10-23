@@ -10,9 +10,9 @@ const { width: windowWidth, height: windowHeight } = Dimensions.get("window")
 const PREVIEW_SIZE = 325
 const PREVIEW_RECT = {
     minX: (windowWidth - PREVIEW_SIZE) / 2,
-    minY: PREVIEW_SIZE/2,
+    minY: PREVIEW_SIZE/4,
     width: PREVIEW_SIZE,
-    height: PREVIEW_SIZE*1.5,
+    height: PREVIEW_SIZE*1.8,
 }
 
 const ScanPassportScreen = ({ navigation, route }) => {
@@ -108,6 +108,12 @@ const styles = StyleSheet.create({
     btmButton: {
         ...BUTTONS.btmButton
     },
+    buttonText: {
+        textAlign: "center",
+        fontWeight: "bold",
+        padding: SIZES.small,
+        fontSize: SIZES.medium,
+    }
 })
 
 export default ScanPassportScreen

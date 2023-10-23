@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { COLORS, FONT, SIZES, BUTTONS } from "../constants/index";
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   const handleGotItPress = () => {
-    navigation.push('ScanPassportScreen')
+    navigation.push('ScanPassport')
   };
 
   return (

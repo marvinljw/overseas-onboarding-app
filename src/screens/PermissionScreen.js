@@ -72,20 +72,16 @@ const styles = StyleSheet.create({
     marginBottom: SIZES.xxLarge,
     lineHeight: SIZES.xLarge,
   },
-
   boldText: {
     fontWeight: "bold",
   },
-
   linkText: {
     color: COLORS.blue,
     fontSize: SIZES.medium,
   },
-
   btmButton: {
     ...BUTTONS.btmButton
   },
-
   buttonText: {
     textAlign: "center",
     fontWeight: "bold",
