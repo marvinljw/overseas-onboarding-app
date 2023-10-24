@@ -10,6 +10,7 @@ import SplashScreen from "./src/screens/SplashScreen";
 import PermissionScreen from "./src/screens/PermissionScreen";
 import ScanPassportScreen from "./src/screens/ScanPassportScreen";
 import HowToScanScreen from "./src/screens/HowToScanScreen";
+import FaceVerificationScreen from "./src/screens/FaceVerificationScreen";
 
 import { COLORS } from "./src/constants/index";
 
@@ -19,7 +20,7 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <NavigationContainer styles={styles.container}>
-        <Stack.Navigator initialRouteName="ScanPassport">
+        <Stack.Navigator initialRouteName="Splash">
           <Stack.Screen
             name="Splash"
             component={SplashScreen}
@@ -60,7 +61,39 @@ export default function App() {
             name="ScanPassport"
             component={ScanPassportScreen}
             options={({ navigation }) => ({
+              unmountOnBlur: true,
               headerTitle: "Scan your passport",
+              headerStyle: { backgroundColor: COLORS.blue },
+              headerTitleStyle: {
+                color: COLORS.white,
+              },
+              headerRight: (prop) => (
+                <Pressable
+                  android_ripple={{
+                    color: '#666666',
+                    foreground: true,
+                    borderless: true,
+                  }}
+                  onPress={() => {    
+                    navigation.navigate('HowToScan');
+                  }}>
+                  <Icon
+                    style={{paddingRight: 10}}
+                    name="alert-circle-outline"
+                    size={30}
+                    color={"white"}
+                  />
+                </Pressable>
+              ),
+            })}
+          />
+
+          <Stack.Screen
+            name="FaceVerification"
+            component={FaceVerificationScreen}
+            options={({ navigation }) => ({
+              unmountOnBlur: true,
+              headerTitle: "Face Verfication",
               headerStyle: { backgroundColor: COLORS.blue },
               headerTitleStyle: {
                 color: COLORS.white,

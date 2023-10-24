@@ -21,7 +21,7 @@ const ScanPassportScreen = ({ navigation, route }) => {
     const [scaleAnim] = useState(new Animated.Value(1));
 
     const handleGotItPress = () => {
-        navigation.push('HowToScan')
+        navigation.push('FaceVerification')
     };
 
     useEffect(() => {
@@ -77,7 +77,7 @@ const ScanPassportScreen = ({ navigation, route }) => {
             </MaskedView>
 
             <TouchableOpacity onPress={handleGotItPress} style={styles.btmButton}>
-                    <Text style={styles.buttonText}>Submit</Text>
+                    <Text style={styles.buttonText}>Take Picture</Text>
             </TouchableOpacity>
         </View>
     );
