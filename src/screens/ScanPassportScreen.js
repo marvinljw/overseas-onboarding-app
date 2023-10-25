@@ -6,6 +6,9 @@ import * as ImagePicker from "expo-image-picker"
 import { COLORS, FONT, SIZES, BUTTONS } from "../constants/index";
 
 const { width: windowWidth, height: windowHeight } = Dimensions.get("window")
+const maskRowHeight = Math.round((windowHeight - 700) / 10);
+const maskColWidth = (windowWidth - 300) / 2;
+
 const PREVIEW_SIZE = 325
 const PREVIEW_RECT = {
     minX: (windowWidth - PREVIEW_SIZE) / 2,
@@ -72,9 +75,17 @@ const ScanPassportScreen = ({ navigation, route }) => {
     }
     return (
         <View style={styles.container}>
-            <MaskedView style={StyleSheet.absoluteFill} maskElement={<View style={styles.mask} />} >
-                <Camera style={styles.camera} type={type} ratio="4:3" ref={(e) => setCamera(e)} />
-            </MaskedView>
+            <Camera style={styles.camera} type={type} ratio="1:1" ref={(e) => setCamera(e)} >
+                <View style={styles.maskOutter}>
+                    <View style={[{ flex: maskRowHeight  }, styles.maskRow, styles.maskFrame]} />
+                        <View style={[{ flex: 30 }, styles.maskCenter]}>
+                        <View style={[{ width: maskColWidth }, styles.maskFrame]} />
+                        <View style={styles.maskInner} />
+                        <View style={[{ width: maskColWidth }, styles.maskFrame]} />
+                    </View>
+                    <View style={[{ flex: maskRowHeight }, styles.maskRow, styles.maskFrame]} />
+                </View>
+            </Camera>
 
             <TouchableOpacity onPress={handleGotItPress} style={styles.btmButton}>
                     <Text style={styles.buttonText}>Take Picture</Text>
@@ -89,18 +100,32 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    mask: {
-      borderRadius: PREVIEW_SIZE / 10,
-      height: PREVIEW_RECT.height,
-      width: PREVIEW_RECT.width,
-      marginTop: PREVIEW_RECT.minY,
-      alignSelf: "center",
-      backgroundColor: "black",
+    maskOutter: {
+        position: 'absolute',
+        top: -windowHeight/20,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        alignItems: 'center',
+        justifyContent: 'space-around',
+    },
+    maskInner: {
+        width: 300,
+        backgroundColor: 'transparent',
+        borderColor: 'white',
+        borderWidth: 1,
+    },
+    maskFrame: {
+        backgroundColor: 'rgba(1,1,1,0.6)',
+    },
+    maskRow: {
+        width: '100%',
+    },
+    maskCenter: { 
+        flexDirection: 'row' 
     },
     camera: { 
-        flex: 1, 
         aspectRatio: 1,
-        marginTop: PREVIEW_RECT.minY,
         width: windowWidth, // Adjust the width as needed
         height: windowHeight, // Adjust the height as needed    
     },

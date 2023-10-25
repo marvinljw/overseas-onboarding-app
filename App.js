@@ -20,7 +20,7 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <NavigationContainer styles={styles.container}>
-        <Stack.Navigator initialRouteName="Splash">
+        <Stack.Navigator initialRouteName="ScanPassport">
           <Stack.Screen
             name="Splash"
             component={SplashScreen}
