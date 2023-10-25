@@ -2,7 +2,7 @@ import React, { useEffect, useReducer, useRef, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { Camera } from "expo-camera";
 import * as FaceDetector from "expo-face-detector"
-import { Alert, Dimensions, StyleSheet, Text, View } from "react-native";
+import { Alert, Dimensions, StyleSheet, Text, View, Image } from "react-native";
 import { AnimatedCircularProgress } from "react-native-circular-progress";
 import { contains } from "../assets/components/contains";
 import MaskedView from "@react-native-masked-view/masked-view";
@@ -25,8 +25,8 @@ const instructionsText = {
 
 const detections = {
   BLINK: { instruction: "Blink both eyes", minProbability: 0.3 },
-  TURN_HEAD_LEFT: { instruction: "Turn head left", maxAngle: -15 },
-  TURN_HEAD_RIGHT: { instruction: "Turn head right", minAngle: 15 },
+  TURN_HEAD_LEFT: { instruction: "Turn head left", maxAngle: -10 },
+  TURN_HEAD_RIGHT: { instruction: "Turn head right", minAngle: 10 },
   NOD: { instruction: "Nod", minDiff: 1.5 },
   SMILE: { instruction: "Smile", minProbability: 0.7 },
 };
@@ -242,8 +242,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   mask: {
-    borderRadius: PREVIEW_SIZE / 2,
-    height: PREVIEW_SIZE,
+    borderRadius: PREVIEW_SIZE / 10,
+    height: PREVIEW_SIZE * 1.5,
     width: PREVIEW_SIZE,
     marginTop: PREVIEW_RECT.minY,
     alignSelf: "center",
@@ -251,7 +251,7 @@ const styles = StyleSheet.create({
   },
   circularProgress: {
     width: PREVIEW_SIZE,
-    height: PREVIEW_SIZE,
+    height: PREVIEW_SIZE * 2,
     marginTop: PREVIEW_RECT.minY,
     marginLeft: PREVIEW_RECT.minX,
   },
