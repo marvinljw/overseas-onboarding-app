@@ -23,8 +23,9 @@ const ScanPassportScreen = ({ navigation, route }) => {
     const [camera, setCamera] = useState(null);
     const [scaleAnim] = useState(new Animated.Value(1));
 
-    const handleGotItPress = () => {
-        navigation.push('FaceVerification')
+    const handleGotItPress = async () => {
+        const data = await camera.takePictureAsync();
+        navigation.push('PassportFailed')
     };
 
     useEffect(() => {
@@ -107,7 +108,7 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
         alignItems: 'center',
-        justifyContent: 'space-around',
+        justifyContent: 'space-around',  
     },
     maskInner: {
         width: 300,

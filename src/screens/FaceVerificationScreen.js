@@ -2,7 +2,8 @@ import React, { useEffect, useReducer, useRef, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { Camera } from "expo-camera";
 import * as FaceDetector from "expo-face-detector"
-import { Alert, Dimensions, StyleSheet, Text, View, Image } from "react-native";
+import { Alert, Dimensions, StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import { COLORS, FONT, SIZES, BUTTONS } from "../constants/index";
 import { AnimatedCircularProgress } from "react-native-circular-progress";
 import { contains } from "../assets/components/contains";
 import MaskedView from "@react-native-masked-view/masked-view";
@@ -24,10 +25,10 @@ const instructionsText = {
 };
 
 const detections = {
-  BLINK: { instruction: "Blink both eyes", minProbability: 0.3 },
-  TURN_HEAD_LEFT: { instruction: "Turn head left", maxAngle: -10 },
-  TURN_HEAD_RIGHT: { instruction: "Turn head right", minAngle: 10 },
-  NOD: { instruction: "Nod", minDiff: 1.5 },
+  BLINK: { instruction: "Blink both eyes", minProbability: 0.4 },
+  TURN_HEAD_LEFT: { instruction: "Turn head left", maxAngle: 310 },
+  TURN_HEAD_RIGHT: { instruction: "Turn head right", minAngle: 50 },
+  NOD: { instruction: "Nod", minDiff: 1 },
   SMILE: { instruction: "Smile", minProbability: 0.7 },
 };
 
@@ -83,6 +84,10 @@ export default function FaceVerificationScreen() {
   const [hasPermission, setHasPermission] = useState(false);
   const [state, dispatch] = useReducer(detectionReducer, initialState);
   const rollAngles = useRef([]);
+
+  const handleGotItPress = () => {
+    navigation.push('FaceFailed')
+  };
 
   useEffect(() => {
     const requestPermissions = async () => {
@@ -233,6 +238,10 @@ export default function FaceVerificationScreen() {
           {state.faceDetected === "yes" && state.faceTooBig === "no" && detections[state.detectionsList[state.currentDetectionIndex]].instruction}
         </Text>
       </View>
+
+      <TouchableOpacity onPress={handleGotItPress} style={styles.btmButton}>
+          <Text style={styles.buttonText}>Proceed</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -243,8 +252,8 @@ const styles = StyleSheet.create({
   },
   mask: {
     borderRadius: PREVIEW_SIZE / 10,
-    height: PREVIEW_SIZE * 1.5,
     width: PREVIEW_SIZE,
+    height: PREVIEW_SIZE * 1.5,
     marginTop: PREVIEW_RECT.minY,
     alignSelf: "center",
     backgroundColor: "white",
@@ -272,4 +281,13 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontWeight: "bold",
   },
+  btmButton: {
+    ...BUTTONS.btmButton
+  },
+  buttonText: {
+    textAlign: "center",
+    fontWeight: "bold",
+    padding: SIZES.small,
+    fontSize: SIZES.medium,
+  }
 });

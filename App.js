@@ -11,6 +11,10 @@ import PermissionScreen from "./src/screens/PermissionScreen";
 import ScanPassportScreen from "./src/screens/ScanPassportScreen";
 import HowToScanScreen from "./src/screens/HowToScanScreen";
 import FaceVerificationScreen from "./src/screens/FaceVerificationScreen";
+import PassportSuccessfulScreen from "./src/screens/PassportSuccessfulScreen";
+import PassportFailedScreen from "./src/screens/PassportFailedScreen";
+import FaceFailedScreen from "./src/screens/FaceFailedScreen";
+import FaceSuccessfulScreen from "./src/screens/FaceSuccessfulScreen";
 
 import { COLORS } from "./src/constants/index";
 
@@ -88,6 +92,42 @@ export default function App() {
             })}
           />
 
+          <Stack.Screen 
+            name="HowToScan" 
+            component={HowToScanScreen} 
+            options={{
+              headerTitle: "How To Scan",
+              headerStyle: { backgroundColor: COLORS.blue },
+              headerTitleStyle: {
+                color: COLORS.white,
+              }
+            }}
+          />
+
+          <Stack.Screen 
+            name="PassportFailed" 
+            component={PassportFailedScreen} 
+            options={{
+              headerTitle: "Passport Verification Failed",
+              headerStyle: { backgroundColor: COLORS.blue },
+              headerTitleStyle: {
+                color: COLORS.white,
+              }
+            }}
+          />
+
+          <Stack.Screen 
+            name="PassportSuccessful" 
+            component={PassportSuccessfulScreen} 
+            options={{
+              headerTitle: "Passport Verified Successfully",
+              headerStyle: { backgroundColor: COLORS.blue },
+              headerTitleStyle: {
+                color: COLORS.white,
+              }
+            }}
+          />
+
           <Stack.Screen
             name="FaceVerification"
             component={FaceVerificationScreen}
@@ -119,15 +159,28 @@ export default function App() {
             })}
           />
 
+
           <Stack.Screen 
-              name="HowToScan" 
-              component={HowToScanScreen} 
-              options={{
-                headerTitle: "How To Scan",
-                headerStyle: { backgroundColor: COLORS.blue },
-                headerTitleStyle: {
-                  color: COLORS.white,
-                }
+            name="FaceFailed" 
+            component={FaceFailedScreen} 
+            options={{
+              headerTitle: "Face Verification Failed",
+              headerStyle: { backgroundColor: COLORS.blue },
+              headerTitleStyle: {
+                color: COLORS.white,
+              }
+            }}
+          />
+
+          <Stack.Screen 
+            name="FaceSuccessful" 
+            component={FaceSuccessfulScreen} 
+            options={{
+              headerTitle: "Face Verified Successfully",
+              headerStyle: { backgroundColor: COLORS.blue },
+              headerTitleStyle: {
+                color: COLORS.white,
+              }
             }}
           />
         </Stack.Navigator>
