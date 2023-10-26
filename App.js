@@ -11,8 +11,10 @@ import PermissionScreen from "./src/screens/PermissionScreen";
 import ScanPassportScreen from "./src/screens/ScanPassportScreen";
 import HowToScanScreen from "./src/screens/HowToScanScreen";
 import FaceVerificationScreen from "./src/screens/FaceVerificationScreen";
+import PurposeScreen from "./src/screens/PurposeScreen";
+import SetupOverviewScreen from "./src/screens/SetUpOverviewScreen";
 
-import { COLORS } from "./src/constants/index";
+import { COLORS, SIZES } from "./src/constants/index";
 
 const Stack = createStackNavigator();
 
@@ -20,7 +22,7 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <NavigationContainer styles={styles.container}>
-        <Stack.Navigator initialRouteName="ScanPassport">
+        <Stack.Navigator initialRouteName="Purpose">
           <Stack.Screen
             name="Splash"
             component={SplashScreen}
@@ -37,9 +39,25 @@ export default function App() {
             options={{
               headerTitle: "Welcome",
               headerStyle: { backgroundColor: COLORS.blue },
-              // headerShadowVisible: false,
-              // headerShown: false,
               headerTitleStyle: {
+                color: COLORS.white,
+                fontSize: SIZES.xLarge,
+              },
+              headerLeft: null,
+            }}
+          />
+
+          <Stack.Screen
+            name="Purpose"
+            component={PurposeScreen}
+            options={{
+              headerTitle: "Welcome",
+              headerStyle: { backgroundColor: COLORS.blue },
+              headerTitleStyle: {
+                color: COLORS.white,
+                fontSize: SIZES.xLarge,
+              },
+              headerBackTitleStyle: {
                 color: COLORS.white,
               }
             }}
@@ -130,6 +148,20 @@ export default function App() {
                 }
             }}
           />
+          <Stack.Screen
+            name="SetupOverview"
+            component={SetupOverviewScreen}
+            options={{
+              headerTitle: "Hi There",
+              headerStyle: { backgroundColor: COLORS.blue },
+              headerTitleStyle: {
+                color: COLORS.white,
+                fontSize: SIZES.xLarge,
+              },
+            }}
+          />
+
+          <Stack.Screen name="Home" component={HomeScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaView>
