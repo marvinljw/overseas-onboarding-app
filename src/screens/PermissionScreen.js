@@ -88,10 +88,7 @@ const styles = StyleSheet.create({
   },
 
   buttonText: {
-    textAlign: "center",
-    fontWeight: "bold",
-    padding: SIZES.small,
-    fontSize: SIZES.medium,
+    ...BUTTONS.btmButtonText
   }
 });
 

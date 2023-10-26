@@ -65,7 +65,7 @@ const BUTTONS = {
     textAlign: "center",
     fontWeight: "600",
     padding: SIZES.small,
-    fontSize: SIZES.large,
+    fontSize: SIZES.medium,
   },
 };
 
