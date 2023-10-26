@@ -7,6 +7,7 @@ const COLORS = {
   lightBlue: "#E1F0FF",
   black: "black",
   grey: "#6D7989",
+  coolGrey: "#F9FAFB",
 
   white: "#FFFFFF",
 };
@@ -54,9 +55,9 @@ const SHADOWS = {
 const BUTTONS = {
   btmButton: {
     position: "absolute",
-    bottom: 20,
+    bottom: 30,
     backgroundColor: COLORS.yellow,
-    width: "90%",
+    width: "100%",
     borderRadius: SIZES.xxSmall,
   },
 
@@ -64,7 +65,7 @@ const BUTTONS = {
     textAlign: "center",
     fontWeight: "600",
     padding: SIZES.small,
-    fontSize: SIZES.medium,
+    fontSize: SIZES.large,
   },
 };
 

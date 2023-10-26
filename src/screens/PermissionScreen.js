@@ -52,17 +52,17 @@ const styles = StyleSheet.create({
     position: 'relative',
     backgroundColor: COLORS.white,
     alignItems: "center",
-    justifyContent: "center",
     height: "100%",
     width: "100%",
     padding: "5%",
   },
   logo: {
     width: "70%",
-    height: "35%",
+    height: "40%",
+    marginTop: "25%"
   },
   title: {
-    fontSize: SIZES.large,
+    fontSize: SIZES.xLarge,
     marginBottom: SIZES.medium,
     fontWeight: "bold",
   },
@@ -71,6 +71,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginBottom: SIZES.xxLarge,
     lineHeight: SIZES.xLarge,
+    textAlign: "center",
   },
 
   boldText: {
