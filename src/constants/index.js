@@ -7,7 +7,8 @@ const COLORS = {
   lightBlue: "#E1F0FF",
   black: "black",
   grey: "#6D7989",
-  coolGrey: "#F9FAFB",
+  bgCoolGrey: "#F9FAFB",
+  coolGrey: "#BBC5D0",
 
   white: "#FFFFFF",
 };
@@ -24,6 +25,7 @@ const SIZES = {
   xSmall: 10,
   small: 12,
   medium: 16,
+  xMedium: 18,
   large: 20,
   xLarge: 24,
   xxLarge: 32,
@@ -31,7 +33,7 @@ const SIZES = {
 
 const SHADOWS = {
   small: {
-    shadowColor: "#000",
+    // shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 2,

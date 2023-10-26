@@ -23,7 +23,7 @@ const PurposeScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Tell us more about yourself.</Text>
+      <Text style={styles.header}>Let's make the app more useful for you. {"\n"}Tell us more about yourself.</Text>
 
       <TouchableOpacity
         style={styles.purposeBox(purpose, "WP Form")}
@@ -31,7 +31,7 @@ const PurposeScreen = ({ navigation }) => {
       >
         <Image
           style={styles.logo}
-          source={require("../assets/images/purpose-WP-form.jpeg")}
+          source={require("../assets/images/purpose-WP-form.png")}
           resizeMode="contain"
         />
         <Text style={styles.details(purpose, "WP Form")}>I am here to apply for the Work Permit</Text>
@@ -43,7 +43,7 @@ const PurposeScreen = ({ navigation }) => {
       >
         <Image
           style={styles.logo}
-          source={require("../assets/images/purpose-others.jpeg")}
+          source={require("../assets/images/purpose-others.png")}
           resizeMode="contain"
         />
         <Text style={styles.details(purpose, "Others")}>I am a service provider, member of public or others</Text>
@@ -59,39 +59,47 @@ const PurposeScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.white,
+    backgroundColor: COLORS.bgCoolGrey,
     padding: "5%",
+    alignItems: "center",
   },
 
   header: {
-    fontSize: SIZES.medium,
-    marginBottom: SIZES.medium,
+    fontSize: SIZES.xMedium,
+    marginBottom: SIZES.xLarge,
+    lineHeight: SIZES.xLarge,
     fontWeight: "600",
+    textAlign: "left",
+    width: "100%",
   },
 
   purposeBox: (selectedPurpose, purpose) => ({
-    height: "36%",
+    height: "35%",
+    width: "100%",
     borderRadius: SIZES.xxSmall,
-    borderColor: COLORS.blue,
-    borderWidth: selectedPurpose == purpose ? 1.5 : 0,
-    ...SHADOWS.medium,
+    borderColor: selectedPurpose == purpose ? COLORS.blue: COLORS.grey,
+    borderWidth: 1.5,
+    backgroundColor: selectedPurpose == purpose ? COLORS.lightBlue: COLORS.white,
+    
+    // ...SHADOWS.small,
     padding: SIZES.xxLarge,
     alignItems: "center",
     justifyContent: "center",
     marginBottom: SIZES.xLarge,
-    opacity: selectedPurpose == purpose ? 1 : 0.7,
+    opacity: selectedPurpose == purpose ? 1 : 0.9,
   }),
 
   logo: {
     width: "80%",
     height: "80%",
-    marginBottom: SIZES.medium,
+    marginBottom: SIZES.xMedium,
     marginTop: SIZES.small,
   },
 
   details: (selectedPurpose, purpose) => ({
     textAlign: "center",
     color: selectedPurpose == purpose ? COLORS.black : COLORS.grey,
+    fontWeight: selectedPurpose == purpose ? "600" : "400",
     fontSize: SIZES.medium,
   }),
 
