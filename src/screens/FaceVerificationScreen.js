@@ -191,7 +191,8 @@ export default function FaceVerificationScreen() {
     if (state.processComplete) {
       Alert.alert("Liveness", "Liveness check passed");
       setTimeout(() => {
-        navigation.goBack();
+        //navigation.goBack();
+        navigation.push('FaceFailed');
       }, 500);
     }
   }, [state.processComplete]);

@@ -26,7 +26,7 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <NavigationContainer styles={styles.container}>
-        <Stack.Navigator initialRouteName="Purpose">
+        <Stack.Navigator initialRouteName="Splash">
           <Stack.Screen
             name="Splash"
             component={SplashScreen}
@@ -156,24 +156,6 @@ export default function App() {
               headerTitleStyle: {
                 color: COLORS.white,
               },
-              headerRight: (prop) => (
-                <Pressable
-                  android_ripple={{
-                    color: '#666666',
-                    foreground: true,
-                    borderless: true,
-                  }}
-                  onPress={() => {    
-                    navigation.navigate('HowToScan');
-                  }}>
-                  <Icon
-                    style={{paddingRight: 10}}
-                    name="alert-circle-outline"
-                    size={30}
-                    color={"white"}
-                  />
-                </Pressable>
-              ),
             })}
           />
 
@@ -214,7 +196,6 @@ export default function App() {
             }}
           />
 
-          <Stack.Screen name="Home" component={HomeScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaView>
