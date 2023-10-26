@@ -17,6 +17,7 @@ import PassportSuccessfulScreen from "./src/screens/PassportSuccessfulScreen";
 import PassportFailedScreen from "./src/screens/PassportFailedScreen";
 import FaceFailedScreen from "./src/screens/FaceFailedScreen";
 import FaceSuccessfulScreen from "./src/screens/FaceSuccessfulScreen";
+import WelcomeBackScreen from "./src/screens/WelcomeBackScreen";
 
 import { COLORS, SIZES } from "./src/constants/index";
 
@@ -26,7 +27,7 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <NavigationContainer styles={styles.container}>
-        <Stack.Navigator initialRouteName="Splash">
+        <Stack.Navigator initialRouteName="WelcomeBack">
           <Stack.Screen
             name="Splash"
             component={SplashScreen}
@@ -193,6 +194,14 @@ export default function App() {
                 color: COLORS.white,
                 fontSize: SIZES.xLarge,
               },
+            }}
+          />
+
+          <Stack.Screen
+            name="WelcomeBack"
+            component={WelcomeBackScreen}
+            options={{
+              headerTitle: "",
             }}
           />
 
