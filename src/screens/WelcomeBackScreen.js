@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StyleSheet, View, Text, Image } from 'react-native';
+import { StyleSheet, View, Text, Image, ScrollView, Sa } from 'react-native';
 import { COLORS, FONT, SIZES, BUTTONS } from "../constants/index";
 import { Card } from '@rneui/themed';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -8,9 +8,10 @@ const WelcomeBackScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-        <Text style={styles.text}>Welcome Back Screen</Text>
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <Text style={styles.heading}>Welcome Back!</Text>
         <Text style={styles.caption}>Accessed on: 24 Aug 2023, 09:23AM</Text>
-        <Card containerStyle={{ marginTop: 15 }}>
+        <Card containerStyle={styles.card}>
           <Card.Title style={styles.title}>Application Status</Card.Title>
           <Card.Divider />
           <Image source={require("../assets/images/failedIcon.png")} style={styles.logo} />
@@ -27,7 +28,7 @@ const WelcomeBackScreen = ({navigation}) => {
           </Text>
           <Text style={styles.carddesc}>MOM Emailed EA</Text>
         </Card>
-        {/* <Card containerStyle={{ marginTop: 15 }}>
+        <Card containerStyle={styles.cardPermit}>
           <Card.Title style={styles.title}>Work Permit</Card.Title>
           <Card.Divider />
           <Card.Image
@@ -49,7 +50,8 @@ const WelcomeBackScreen = ({navigation}) => {
             Pass Expires On
           </Text>
           <Text style={styles.carddesc}>G***678B</Text>
-        </Card> */}
+        </Card>
+      </ScrollView>
     </View>
   );
 };
@@ -58,7 +60,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    justifyContent: "center",
+  },
+  heading: {
+    textAlign: "left",
+    fontWeight: "bold",
+    paddingLeft: SIZES.large,
+    fontSize: SIZES.xLarge,
+  },
+  scrollview: {
+    flexGrow: 1,
   },
   title: {
     textAlign: "left",
@@ -76,9 +86,21 @@ const styles = StyleSheet.create({
   },
   caption: {
     textAlign: "center",
-    color: "grey",
+    color: COLORS.grey,
     padding: SIZES.xSmall,
     fontSize: SIZES.small,
+  },
+  card: {
+    marginTop: 15,
+    borderRadius: 10,
+    borderTopWidth: 5,
+    borderColor: COLORS.red,
+  },
+  cardPermit: {
+    marginTop: 15,
+    borderRadius: 10,
+    borderTopWidth: 5,
+    borderColor: COLORS.blue,
   },
   cardheading: {
     paddingTop: SIZES.medium,
